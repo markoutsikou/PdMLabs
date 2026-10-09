@@ -804,7 +804,7 @@ class PdMExperiment(abc.ABC):
         plt.tight_layout()
         mlflow.log_figure(plt.gcf(), 'pr_curve.png')
 
-        plt.clf()
+        plt.close("all")
         plt.figure(figsize=(20, 20))
         if self.debug:
             counter = 0

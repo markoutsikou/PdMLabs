@@ -1,3 +1,9 @@
+import os
+os.environ["MPLBACKEND"] = "Agg"
+
+import matplotlib
+matplotlib.use("Agg")
+
 from pathlib import Path
 import argparse
 import json

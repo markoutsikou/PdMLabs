@@ -28,19 +28,31 @@ Reference configuration:
 
 PER-RUN RESULTS
    optimizer  hpo_seed  best_validation_ad1_auc  runtime_seconds  window  slide  n_estimators  max_samples  reached_reference_score  matches_reference_config
-       mango         1                 0.833333           368.90     160   1.00           100           40                     True                      True
-       mango        10                 0.833333           275.93     160   1.00           200           40                     True                     False
-       mango        42                 0.833333           362.81     160   1.00           100           40                     True                      True
-       mango       100                 0.833333           250.38     160   1.00           100           40                     True                      True
-       mango      2026                 0.833333           290.80     160   1.00           100           40                     True                      True
-mango_random         1                 0.833333           397.04     160   1.00           100           40                     True                      True
-mango_random        10                 0.777992           371.82     160   1.00           200           20                    False                     False
-mango_random        42                 0.833333           327.39     160   1.00           100           40                     True                      True
-mango_random       100                 0.833333           318.37     160   1.00           200           40                     True                     False
-mango_random      2026                 0.719595           457.72     160   0.33           100           20                    False                     False
+       mango         1                 0.833333           368.90   160.0   1.00         100.0         40.0                     True                      True
+       mango        10                 0.833333           275.93   160.0   1.00         200.0         40.0                     True                     False
+       mango        42                 0.833333           362.81   160.0   1.00         100.0         40.0                     True                      True
+       mango       100                 0.833333           250.38   160.0   1.00         100.0         40.0                     True                      True
+       mango      2026                 0.833333           290.80   160.0   1.00         100.0         40.0                     True                      True
+mango_random         1                 0.833333           397.04   160.0   1.00         100.0         40.0                     True                      True
+mango_random        10                 0.777992           371.82   160.0   1.00         200.0         20.0                    False                     False
+mango_random        42                 0.833333           327.39   160.0   1.00         100.0         40.0                     True                      True
+mango_random       100                 0.833333           318.37   160.0   1.00         200.0         40.0                     True                     False
+mango_random      2026                 0.719595           457.72   160.0   0.33         100.0         20.0                    False                     False
+      optuna         1                 0.833333           235.65   160.0   1.00         200.0         40.0                     True                     False
+      optuna        10                 0.777992           332.35   160.0   1.00         200.0         20.0                    False                     False
+      optuna        42                 0.833333           287.75   160.0   1.00         100.0         40.0                     True                      True
+      optuna       100                 0.594595           272.61   160.0   0.50          50.0         40.0                    False                     False
+      optuna      2026                 0.833333           320.65   160.0   1.00         200.0         40.0                     True                     False
+        smac         1                 0.833333           312.08   160.0   1.00         200.0         40.0                     True                     False
+        smac        10                 0.833333           285.73   160.0   1.00         200.0         40.0                     True                     False
+        smac        42                 0.833333           387.77   160.0   1.00         100.0         40.0                     True                      True
+        smac       100                 0.731944           344.81   160.0   1.00          50.0         20.0                    False                     False
+        smac      2026                 0.833333           404.39   160.0   1.00         200.0         40.0                     True                     False
 
 SUMMARY BY OPTIMIZER
               successful_runs  mean_best_ad1_auc  std_best_ad1_auc  min_best_ad1_auc  max_best_ad1_auc  reference_score_hits  reference_config_hits  unique_best_configs  mean_runtime_seconds  median_runtime_seconds
 optimizer                                                                                                                                                                                                             
 mango                       5           0.833333          0.000000          0.833333          0.833333                     5                      4                    2               309.764                  290.80
 mango_random                5           0.799517          0.050699          0.719595          0.833333                     3                      2                    4               374.468                  371.82
+optuna                      5           0.774517          0.103395          0.594595          0.833333                     3                      1                    4               289.802                  287.75
+smac                        5           0.813056          0.045342          0.731944          0.833333                     4                      1                    3               346.956                  344.81
