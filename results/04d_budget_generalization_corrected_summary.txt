@@ -1,0 +1,45 @@
+Experiment: E04d - Budget 4 vs Budget 8 Generalization
+Dataset: IMS
+Generalization source: 3
+Metric: AD1_AUC
+Seeds: [1, 10, 42, 100, 2026]
+
+IMPORTANT CORRECTION
+max_features is omitted from all parameter dictionaries.
+Effective max_features = 1.0.
+Effective policy = or.
+Effective bootstrap = False.
+
+BUDGET 4 WINNER
+window=160
+slide=0.5
+n_estimators=100
+max_samples=40
+
+BUDGET 8 WINNER
+window=160
+slide=1.0
+n_estimators=100
+max_samples=40
+
+SUMMARY STATISTICS
+               mean_ad1_auc  std_ad1_auc  min_ad1_auc  max_ad1_auc  mean_runtime_seconds  missing_pipeline_results  missing_thresholds
+configuration                                                                                                                         
+budget_4           0.189086     0.053823     0.130435     0.260870             18.553832                         0                   0
+budget_8           0.126301     0.008334     0.117647     0.136364             12.065300                         0                   0
+
+SEED-BY-SEED COMPARISON
+configuration  budget_4  budget_8  budget8_minus_budget4  budget8_over_budget4  budget8_wins
+seed                                                                                        
+1              0.260870  0.117647              -0.143223              0.450980         False
+10             0.227273  0.129412              -0.097861              0.569412         False
+42             0.130435  0.136364               0.005929              1.045455          True
+100            0.152941  0.117647              -0.035294              0.769231         False
+2026           0.173913  0.130435              -0.043478              0.750000         False
+
+OVERALL RESULT
+Budget 4 mean AD1_AUC: 0.18908625900953266
+Budget 8 mean AD1_AUC: 0.12630086026505466
+Absolute mean improvement: -0.062785398744478
+Budget 8 / Budget 4 mean ratio: 0.6679536679536681
+Budget 8 wins: 1/5

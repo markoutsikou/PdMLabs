@@ -1,0 +1,55 @@
+Experiment: E05c - Corrected Optimizer Comparison
+Dataset: IMS
+Optimization sources: 1 + 2
+Method: IsolationForestUnsupervised
+Metric: AD1_AUC
+Budget: 16
+Seed: 42
+Initial random trials: 2
+
+IMPORTANT CORRECTION
+max_features is not included in the HPO search space.
+Effective max_features = 1.0.
+Effective policy = or.
+Effective bootstrap = False.
+use_cache=False to avoid reuse of older contaminated trials.
+
+SEARCH SPACE
+{
+  "window": [
+    40,
+    80,
+    160
+  ],
+  "slide": [
+    0.33,
+    0.5,
+    1.0
+  ],
+  "n_estimators": [
+    50,
+    100,
+    200
+  ],
+  "max_samples": [
+    20,
+    40
+  ],
+  "random_state": [
+    42
+  ]
+}
+
+SUCCESSFUL RESULTS
+   optimizer  best_validation_ad1_auc  runtime_seconds  window  slide  n_estimators  max_samples
+mango_random                 0.833333           284.76     160    1.0           100           40
+       mango                 0.833333           346.85     160    1.0           100           40
+      optuna                 0.833333           359.32     160    1.0           100           40
+        smac                 0.833333           530.93     160    1.0           100           40
+
+PARAMETER TYPE AUDIT
+   optimizer window_type slide_type n_estimators_type max_samples_type random_state_type
+mango_random         int      float               int              int               int
+       mango         int      float               int              int               int
+      optuna         int      float               int              int               int
+        smac         int      float               int              int               int

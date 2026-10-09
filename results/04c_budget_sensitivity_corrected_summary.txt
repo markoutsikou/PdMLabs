@@ -1,0 +1,47 @@
+Experiment: E04c - Corrected Budget Sensitivity
+Dataset: IMS
+Optimization sources: 1 + 2
+Method: IsolationForestUnsupervised
+Optimizer: Mango
+Metric: AD1_AUC
+Seed: 42
+Budgets: [16, 32]
+
+IMPORTANT CORRECTION
+max_features is not included in the HPO search space.
+Effective max_features = 1.0.
+Effective policy = or.
+Effective bootstrap = False.
+
+SEARCH SPACE
+{
+  "window": [
+    40,
+    80,
+    160
+  ],
+  "slide": [
+    0.33,
+    0.5,
+    1.0
+  ],
+  "n_estimators": [
+    50,
+    100,
+    200
+  ],
+  "max_samples": [
+    20,
+    40
+  ],
+  "random_state": [
+    42
+  ]
+}
+
+RESULTS
+ budget  best_validation_ad1_auc  runtime_seconds  objective_improvement  window  slide  n_estimators  max_samples
+      4                 0.587838           154.81                    NaN     160    0.5           100           40
+      8                 0.833333           211.52               0.245495     160    1.0           100           40
+     16                 0.833333           345.77               0.000000     160    1.0           100           40
+     32                 0.833333           633.69               0.000000     160    1.0           100           40

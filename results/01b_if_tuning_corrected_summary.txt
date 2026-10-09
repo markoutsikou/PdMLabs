@@ -1,0 +1,55 @@
+Experiment: E01b - Corrected IF Tuning
+Dataset: IMS
+Optimization sources: 1 + 2
+Method: IsolationForestUnsupervised
+Optimizer: Mango
+Objective: AD1_AUC
+Budget: 8
+Seed: 42
+
+IMPORTANT CORRECTION
+max_features was removed from the HPO search space to avoid int/float semantic coercion.
+Effective max_features = 1.0 (sklearn default).
+Effective policy = or.
+Effective bootstrap = False.
+
+SEARCH SPACE
+{
+  "window": [
+    40,
+    80,
+    160
+  ],
+  "slide": [
+    0.33,
+    0.5,
+    1.0
+  ],
+  "n_estimators": [
+    50,
+    100,
+    200
+  ],
+  "max_samples": [
+    20,
+    40
+  ],
+  "random_state": [
+    42
+  ]
+}
+
+RESULT
+Best validation AD1_AUC: 0.8333333333333334
+Best pipeline AD1_AUC: 0.8333333333333334
+Threshold: 0.6431438754182383
+Runtime_seconds: 211.9282493999999
+
+Best parameters:
+{
+  "method_max_samples": 40,
+  "method_n_estimators": 100,
+  "method_random_state": 42,
+  "method_slide": 1.0,
+  "method_window": 160
+}

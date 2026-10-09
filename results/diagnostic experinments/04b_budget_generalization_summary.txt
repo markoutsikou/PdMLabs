@@ -1,0 +1,28 @@
+Experiment: E04b - Budget Generalization Check
+Dataset: IMS
+Generalization source: 3
+Metric: AD1_AUC
+Seeds: [1, 10, 42, 100, 2026]
+
+Configurations:
+Baseline: window=40, slide=0.5, n_estimators=10, max_samples=auto
+Budget-8: window=160, slide=1.0, n_estimators=100, max_samples=40
+Budget-32: window=160, slide=1.0, n_estimators=200, max_samples=20
+
+SUMMARY STATISTICS
+               mean_ad1_auc  std_ad1_auc  min_ad1_auc  max_ad1_auc  mean_runtime_seconds
+configuration                                                                           
+baseline           0.030387     0.011597     0.022430     0.050000             12.218702
+budget_32          0.295652     0.064489     0.217391     0.391304             18.732802
+budget_8           0.126301     0.008334     0.117647     0.136364             12.314066
+
+SEED-BY-SEED COMPARISON
+configuration  baseline  budget_32  budget_8  budget32_minus_budget8  budget8_minus_baseline  budget32_minus_baseline  budget32_beats_budget8
+seed                                                                                                                                         
+1              0.024390   0.391304  0.117647                0.273657                0.093257                 0.366914                    True
+10             0.050000   0.260870  0.129412                0.131458                0.079412                 0.210870                    True
+42             0.023200   0.217391  0.136364                0.081028                0.113163                 0.194191                    True
+100            0.022430   0.304348  0.117647                0.186701                0.095217                 0.281918                    True
+2026           0.031915   0.304348  0.130435                0.173913                0.098520                 0.272433                    True
+
+Budget-32 beats Budget-8: 5/5 seeds

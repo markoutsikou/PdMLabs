@@ -1,0 +1,45 @@
+Experiment: E05a - Objective Consistency Audit
+Dataset: IMS
+Optimization sources: 1 + 2
+Metric: AD1_AUC
+Fixed configuration:
+{
+  "window": [
+    160
+  ],
+  "slide": [
+    1.0
+  ],
+  "policy": [
+    "or"
+  ],
+  "n_estimators": [
+    100
+  ],
+  "max_samples": [
+    40
+  ],
+  "max_features": [
+    1.0
+  ],
+  "bootstrap": [
+    false
+  ],
+  "random_state": [
+    42
+  ]
+}
+
+RESULTS
+   optimizer  optimizer_best_objective  pipeline_best_objective  objective_difference  optimizer_trial_seed  pipeline_trial_seed  runtime_seconds  status
+       mango                  0.833333                 0.833333                   0.0            1681918724           1691936640        11.699751 success
+mango_random                  0.833333                 0.833333                   0.0            1681918724           1691936640         8.852374 success
+      optuna                  0.833333                 0.833333                   0.0            1681918724           1691936640         9.995348 success
+        smac                  0.833333                 0.833333                   0.0             614036798           1691936640         9.907074 success
+
+PARAMETER TYPES
+   optimizer                                                                                                                                                                                                           optimizer_param_types                                                                                                                                                                                                      pipeline_param_types
+       mango  {"method_window": "int", "method_slide": "float", "method_random_state": "int", "method_policy": "str", "method_n_estimators": "int", "method_max_samples": "int", "method_max_features": "float", "method_bootstrap": "bool"} {"method_window": "str", "method_slide": "str", "method_random_state": "str", "method_policy": "str", "method_n_estimators": "str", "method_max_samples": "str", "method_max_features": "str", "method_bootstrap": "str"}
+mango_random  {"method_window": "int", "method_slide": "float", "method_random_state": "int", "method_policy": "str", "method_n_estimators": "int", "method_max_samples": "int", "method_max_features": "float", "method_bootstrap": "bool"} {"method_window": "str", "method_slide": "str", "method_random_state": "str", "method_policy": "str", "method_n_estimators": "str", "method_max_samples": "str", "method_max_features": "str", "method_bootstrap": "str"}
+      optuna  {"method_window": "int", "method_slide": "float", "method_policy": "str", "method_n_estimators": "int", "method_max_samples": "int", "method_max_features": "float", "method_bootstrap": "bool", "method_random_state": "int"} {"method_window": "str", "method_slide": "str", "method_policy": "str", "method_n_estimators": "str", "method_max_samples": "str", "method_max_features": "str", "method_bootstrap": "str", "method_random_state": "str"}
+        smac {"method_bootstrap": "bool", "method_max_features": "float", "method_max_samples": "int", "method_n_estimators": "int", "method_policy": "str_", "method_random_state": "int", "method_slide": "float", "method_window": "int"} {"method_bootstrap": "str", "method_max_features": "str", "method_max_samples": "str", "method_n_estimators": "str", "method_policy": "str", "method_random_state": "str", "method_slide": "str", "method_window": "str"}

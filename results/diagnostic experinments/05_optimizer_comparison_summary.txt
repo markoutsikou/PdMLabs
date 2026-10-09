@@ -1,0 +1,49 @@
+Experiment: E05 - Optimizer Comparison
+Dataset: IMS
+Optimization sources: 1 + 2
+Method: IsolationForestUnsupervised
+Metric: AD1_AUC
+Budget: 16
+Seed: 42
+
+SEARCH SPACE
+{
+  "window": [
+    40,
+    80,
+    160
+  ],
+  "slide": [
+    0.33,
+    0.5,
+    1.0
+  ],
+  "policy": [
+    "or"
+  ],
+  "n_estimators": [
+    50,
+    100,
+    200
+  ],
+  "max_samples": [
+    20,
+    40
+  ],
+  "max_features": [
+    1.0
+  ],
+  "bootstrap": [
+    false
+  ],
+  "random_state": [
+    42
+  ]
+}
+
+SUCCESSFUL RUNS
+   optimizer  best_validation_ad1_auc  runtime_seconds  window  slide  n_estimators  max_samples
+mango_random                 0.833333           314.83   160.0   1.00         100.0         40.0
+      optuna                 0.833333           313.31   160.0   1.00         100.0         40.0
+        smac                 0.666667           472.22   160.0   0.33         100.0         40.0
+       mango                 0.587838           373.85   160.0   1.00         100.0         40.0

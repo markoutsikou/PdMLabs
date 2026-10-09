@@ -104,12 +104,17 @@ def _run_worker(
     """
     import optuna                                                      # lazy
     from optuna.storages import JournalStorage
-    from optuna.storages.journal import JournalFileBackend
+    from optuna.storages.journal import (JournalFileBackend,JournalFileOpenLock,)
     from scipy.stats._distn_infrastructure import rv_frozen           # lazy
 
     optuna.logging.set_verbosity(optuna.logging.WARNING)
 
-    storage = JournalStorage(JournalFileBackend(file_path))
+    storage = JournalStorage(
+    	JournalFileBackend(
+        	file_path,
+        	lock_obj=JournalFileOpenLock(file_path),
+    	)
+    )
     study = optuna.load_study(
         study_name=study_name,
         storage=storage,
@@ -251,7 +256,10 @@ class OptunaAdapter(BaseOptimizerAdapter):
         import optuna                                                  # lazy
         from optuna.samplers import TPESampler                        # lazy
         from optuna.storages import JournalStorage                    # lazy
-        from optuna.storages.journal import JournalFileBackend        # lazy
+        from optuna.storages.journal import (
+    		JournalFileBackend,
+    		JournalFileOpenLock,
+	)        							# lazy
         from optuna.trial import TrialState                           # lazy
         from joblib import Parallel, delayed                          # lazy
 
@@ -266,7 +274,12 @@ class OptunaAdapter(BaseOptimizerAdapter):
         try:
             # Create the study once in the main process before spawning
             # workers. Workers call optuna.load_study to attach to it.
-            storage = JournalStorage(JournalFileBackend(tmp_file))
+            storage = JournalStorage(
+    		JournalFileBackend(
+        		tmp_file,
+        		lock_obj=JournalFileOpenLock(tmp_file),
+   		)
+	    )
             optuna.create_study(
                 study_name=study_name,
                 storage=storage,
@@ -303,7 +316,7 @@ class OptunaAdapter(BaseOptimizerAdapter):
             )
 
             # Reload the study in the main process to read all results.
-            storage = JournalStorage(JournalFileBackend(tmp_file))
+            storage = JournalStorage(JournalFileBackend(tmp_file,lock_obj=JournalFileOpenLock(tmp_file),))
             study = optuna.load_study(
                 study_name=study_name, storage=storage
             )

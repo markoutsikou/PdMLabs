@@ -1,0 +1,22 @@
+Experiment: E03 - Seed Robustness
+Dataset: IMS
+Held-out source: 3
+Metric: AD1_AUC
+Seeds: [1, 10, 42, 100, 2026]
+
+SUMMARY STATISTICS
+               mean_ad1_auc  std_ad1_auc  min_ad1_auc  max_ad1_auc  mean_runtime_seconds
+configuration                                                                           
+baseline           0.030387     0.011597     0.022430     0.050000             11.408136
+tuned              0.126301     0.008334     0.117647     0.136364             11.435187
+
+BASELINE VS TUNED BY SEED
+configuration  baseline     tuned  improvement  tuned_wins
+seed                                                      
+1              0.024390  0.117647     0.093257        True
+10             0.050000  0.129412     0.079412        True
+42             0.023200  0.136364     0.113163        True
+100            0.022430  0.117647     0.095217        True
+2026           0.031915  0.130435     0.098520        True
+
+Tuned wins: 5/5

@@ -1,0 +1,15 @@
+Experiment: E02b - Corrected Baseline vs Tuned
+Dataset: IMS
+Generalization source: 3
+Metric: AD1_AUC
+Seed: 42
+
+IMPORTANT:
+max_features is omitted from both configurations, so the sklearn default max_features=1.0 is used.
+
+configuration  seed  window  slide  n_estimators max_samples  effective_max_features  ad1_auc  pipeline_ad1_auc  threshold  runtime_seconds
+     baseline    42      40    0.5            10        auto                     1.0 0.023200          0.023200   0.527525        12.952203
+        tuned    42     160    1.0           100          40                     1.0 0.136364          0.136364   0.635063        11.548297
+
+Absolute improvement: 0.11316316045643826
+Tuned / Baseline ratio: 5.8776223776223775

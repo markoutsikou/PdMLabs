@@ -1,0 +1,10 @@
+Experiment: Thesis_IF_Tuning_01
+Dataset: IMS
+Method: IsolationForestUnsupervised
+Optimizer: Mango
+Objective: AD1_AUC
+MAX_RUNS: 8
+Runtime_seconds: 249.32
+
+Best result:
+[{'best_params': {'method_bootstrap': False, 'method_max_features': 1, 'method_max_samples': 40, 'method_n_estimators': 100, 'method_policy': 'or', 'method_random_state': 42, 'method_slide': 1.0, 'method_window': 160}, 'best_objective': np.float64(0.5878378378378378), 'th': 0.6222729553421048, 'best_pipeline_objective': 0.5878378378378378, 'best_pipeline_params': {'method_bootstrap': 'False', 'method_max_features': '1', 'method_max_samples': '40', 'method_n_estimators': '100', 'method_policy': 'or', 'method_random_state': '42', 'method_slide': '1.0', 'method_window': '160'}}]

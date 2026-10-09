@@ -1,0 +1,45 @@
+Experiment: E03b - Corrected Seed Robustness
+Dataset: IMS
+Generalization source: 3
+Metric: AD1_AUC
+Seeds: [1, 10, 42, 100, 2026]
+
+IMPORTANT CORRECTION
+max_features is omitted from all parameter dictionaries.
+Therefore sklearn default max_features=1.0 is used.
+policy is omitted, therefore policy='or' is used.
+bootstrap is omitted, therefore bootstrap=False is used.
+
+BASELINE CONFIGURATION
+window=40
+slide=0.5
+n_estimators=10
+max_samples=auto
+
+TUNED CONFIGURATION
+window=160
+slide=1.0
+n_estimators=100
+max_samples=40
+
+SUMMARY STATISTICS
+               mean_ad1_auc  std_ad1_auc  min_ad1_auc  max_ad1_auc  mean_runtime_seconds  missing_pipeline_results  missing_thresholds
+configuration                                                                                                                         
+baseline           0.030387     0.011597     0.022430     0.050000             11.709303                         0                   0
+tuned              0.126301     0.008334     0.117647     0.136364             11.968164                         0                   0
+
+SEED-BY-SEED COMPARISON
+configuration  baseline     tuned  improvement     ratio  tuned_wins
+seed                                                                
+1              0.024390  0.117647     0.093257  4.823529        True
+10             0.050000  0.129412     0.079412  2.588235        True
+42             0.023200  0.136364     0.113163  5.877622        True
+100            0.022430  0.117647     0.095217  5.245098        True
+2026           0.031915  0.130435     0.098520  4.086957        True
+
+OVERALL RESULTS
+Baseline mean AD1_AUC: 0.030387103993742892
+Tuned mean AD1_AUC: 0.12630086026505466
+Absolute mean improvement: 0.09591375627131177
+Tuned / Baseline mean ratio: 4.156396749458642
+Tuned wins: 5/5

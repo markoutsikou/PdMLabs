@@ -1,0 +1,46 @@
+Experiment: E05d - Optimizer Seed Robustness
+Dataset: IMS
+Optimization sources: 1 + 2
+Method: IsolationForestUnsupervised
+Metric: AD1_AUC
+Budget: 16
+HPO seeds: [1, 10, 42, 100, 2026]
+Fixed model random_state: 42
+
+IMPORTANT METHODOLOGY
+The HPO seed changes between runs, while the Isolation Forest random_state remains fixed at 42.
+This isolates optimizer stochasticity from model stochasticity.
+max_features is omitted from the search space; effective max_features=1.0.
+Effective policy=or.
+Effective bootstrap=False.
+use_cache=False.
+
+REFERENCE RESULT FROM E05c
+Reference AD1_AUC: 0.8333333333333334
+Reference configuration:
+{
+  "method_window": 160,
+  "method_slide": 1.0,
+  "method_n_estimators": 100,
+  "method_max_samples": 40,
+  "method_random_state": 42
+}
+
+PER-RUN RESULTS
+   optimizer  hpo_seed  best_validation_ad1_auc  runtime_seconds  window  slide  n_estimators  max_samples  reached_reference_score  matches_reference_config
+       mango         1                 0.833333           368.90     160   1.00           100           40                     True                      True
+       mango        10                 0.833333           275.93     160   1.00           200           40                     True                     False
+       mango        42                 0.833333           362.81     160   1.00           100           40                     True                      True
+       mango       100                 0.833333           250.38     160   1.00           100           40                     True                      True
+       mango      2026                 0.833333           290.80     160   1.00           100           40                     True                      True
+mango_random         1                 0.833333           397.04     160   1.00           100           40                     True                      True
+mango_random        10                 0.777992           371.82     160   1.00           200           20                    False                     False
+mango_random        42                 0.833333           327.39     160   1.00           100           40                     True                      True
+mango_random       100                 0.833333           318.37     160   1.00           200           40                     True                     False
+mango_random      2026                 0.719595           457.72     160   0.33           100           20                    False                     False
+
+SUMMARY BY OPTIMIZER
+              successful_runs  mean_best_ad1_auc  std_best_ad1_auc  min_best_ad1_auc  max_best_ad1_auc  reference_score_hits  reference_config_hits  unique_best_configs  mean_runtime_seconds  median_runtime_seconds
+optimizer                                                                                                                                                                                                             
+mango                       5           0.833333          0.000000          0.833333          0.833333                     5                      4                    2               309.764                  290.80
+mango_random                5           0.799517          0.050699          0.719595          0.833333                     3                      2                    4               374.468                  371.82
